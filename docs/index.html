@@ -252,7 +252,7 @@ dialog img{max-height:64dvh;object-fit:contain;background:var(--mist)}
     <article class="card need-card"><div class="need-media">
       <img src="assets/need-meals.webp" alt="" loading="lazy" style="object-position:50% 68%">
       <span class="need-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a9 9 0 0 1-18 0Zm5 9h8M8 7V4m4 3V3m4 4V4"/></svg></span>
-    </div><div class="need-content"><h3>Meals at the table</h3><p>Regular meals and time to sit down together.</p></div></article>
+    </div><div class="need-content"><h3>Meals at the table</h3><p>Regular meals and time to sit down together.</p><a href="#give" data-cause="Meals">Fund meals →</a></div></article>
     <article class="card need-card"><div class="need-media">
       <img src="assets/need-learning.webp" alt="" loading="lazy" style="object-position:58% 38%">
       <span class="need-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Zm0 0v14"/></svg></span>
@@ -302,7 +302,7 @@ dialog img{max-height:64dvh;object-fit:contain;background:var(--mist)}
       <form id="gift-form">
         <div class="filters" aria-label="Gift frequency"><button class="chip" type="button" data-mode="sponsor" aria-pressed="true">Sponsor monthly</button><button class="chip" type="button" data-mode="once" aria-pressed="false">Give once</button></div>
         <div id="once-fields" hidden>
-          <label>Preferred purpose<select id="cause"><option>Where most needed</option><option>Everyday care</option><option>Education</option><option>Health and wellbeing</option></select></label>
+          <label>Preferred purpose<select id="cause"><option>Where most needed</option><option>Everyday care</option><option>Meals</option><option>Education</option><option>Health and wellbeing</option></select></label>
           <div class="preset" aria-label="Suggested amounts"><button class="chip" type="button" data-amount="25">$25</button><button class="chip" type="button" data-amount="50">$50</button><button class="chip" type="button" data-amount="100">$100</button><button class="chip" type="button" data-amount="">Other</button></div>
           <label>Your gift in USD<input id="amount" type="number" min="1" step=".01" value="100" required disabled></label>
         </div>
