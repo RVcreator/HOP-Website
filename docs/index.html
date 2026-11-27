@@ -358,10 +358,9 @@ dialog img{max-height:64dvh;object-fit:contain;background:var(--mist)}
           <div class="preset" aria-label="Suggested amounts"><button class="chip" type="button" data-amount="25">$25</button><button class="chip" type="button" data-amount="50">$50</button><button class="chip" type="button" data-amount="100">$100</button><button class="chip" type="button" data-amount="">Other</button></div>
           <label>Your gift in USD<input id="amount" type="number" min="1" step=".01" value="100" required disabled></label>
         </div>
-        <fieldset id="sponsor-options" disabled><legend>Number of children</legend><label><input type="radio" name="children" value="1" checked><span><strong>$120</strong><small>1 child</small></span></label><label><input type="radio" name="children" value="2" ><span><strong>$240</strong><small>2 children</small></span></label><label><input type="radio" name="children" value="3" ><span><strong>$370</strong><small>3 children</small></span></label></fieldset><p class="small" id="sponsor-note" aria-live="polite"></p>
+        <fieldset id="sponsor-options" disabled><legend>Number of children</legend><label><input type="radio" name="children" value="1" checked><span><strong>$120</strong><small>1 child</small></span></label><label><input type="radio" name="children" value="2" ><span><strong>$240</strong><small>2 children</small></span></label><label><input type="radio" name="children" value="3" ><span><strong>$360</strong><small>3 children</small></span></label></fieldset><p class="small" id="sponsor-note" aria-live="polite"></p>
         <button id="donate-now" class="btn cta" type="submit" hidden>Donate now →</button>
         <a id="give-direct" class="btn cta" href="https://wipahs.org/how-to-donate.html">Continue to WIPAHS →</a>
-        <span class="small">WIPAHS confirms payment options, gift designations and monthly terms.</span>
       </form>
     </div>
   </div>
@@ -672,10 +671,8 @@ function updateSponsorship() {
   for (const radio of sponsorship.querySelectorAll('input')) {
     radio.parentElement.querySelector('strong').textContent = usd.format(HopGifts.amount(mode, Number(radio.value)));
   }
-  const three = sponsorship.querySelector(':checked').value === '3';
   get('sponsor-note').hidden = mode === 'once';
-  get('sponsor-note').textContent = mode === 'annual' ? 'One annual payment.' :
-    three ? 'Per month. Includes $10 above the standard sponsorship rate.' : 'Per month.';
+  get('sponsor-note').textContent = mode === 'annual' ? 'One annual payment.' : 'Per month.';
 }
 sponsorship.addEventListener('change', updateSponsorship);
 function setMode(value) {

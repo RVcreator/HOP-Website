@@ -10,7 +10,6 @@ if (gift) {
   get('children').textContent = gift.children || '';
   get('frequency').textContent = annual ? 'Annual' : monthly ? 'Monthly' : 'One time';
   get('total').textContent = usd.format(gift.amount) + (annual ? ' / year' : monthly ? ' / month' : '');
-  get('extra').hidden = !monthly || gift.children !== 3;
   if (annual) {
     get('payment-copy').textContent = 'Use the WIPAHS payment instructions to arrange your annual sponsorship. Include Haven of Peace annual sponsorship and the number of children as your payment reference.';
   } else {

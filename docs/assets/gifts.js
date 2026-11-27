@@ -1,7 +1,7 @@
 'use strict';
 window.HopGifts = {
   amount(mode, children) {
-    return (mode === 'annual' ? [1440, 2880, 4320] : [120, 240, 370])[children - 1];
+    return (mode === 'annual' ? [1440, 2880, 4320] : [120, 240, 360])[children - 1];
   },
   read(params) {
     const mode = params.get('mode');
