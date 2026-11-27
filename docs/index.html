@@ -192,6 +192,17 @@ dialog img{max-height:64dvh;object-fit:contain;background:var(--mist)}
  .give-feature .split{padding-top:clamp(14rem,42vw,21rem)}
 }
 @media(max-width:40rem){.footer-grid{grid-template-columns:1fr;gap:1.4rem}}
+.closeout{position:relative;isolation:isolate;min-height:clamp(28rem,43vw,40rem);display:grid;align-items:center;background:#102f4b url("assets/hop-closeout.webp") 72% 73% / cover no-repeat}
+.closeout::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#0c2a43 0%,#0c2a43c9 31%,transparent 68%),linear-gradient(0deg,#102f4b,transparent 18%)}
+.closeout-copy h2{max-width:13ch}
+.closeout-copy .lead{max-width:29ch}
+.closeout-copy .btn{background:#f4cd76;border-color:#f4cd76;color:var(--navy)}
+.closeout-copy .btn:hover{background:#ffe09c;border-color:#ffe09c}
+.closeout-copy a:focus-visible{outline-color:white}
+@media(max-width:42rem){
+ .closeout{align-items:start;padding-top:2.75rem;padding-bottom:clamp(17rem,64vw,24rem);background-size:auto 25rem;background-position:82% bottom}
+ .closeout::before{background:linear-gradient(180deg,#102f4b 0%,#102f4b 39%,transparent 69%),linear-gradient(0deg,#102f4b,transparent 15%)}
+}
 </style>
 </head>
 <body>
@@ -355,7 +366,7 @@ dialog img{max-height:64dvh;object-fit:contain;background:var(--mist)}
   </div>
 </section>
 
-<section class="closeout block"><div class="wrap">
+<section class="closeout block" aria-label="Support Haven of Peace"><div class="wrap closeout-copy">
   <h2>Childhood happens <em>one day at a time.</em></h2>
   <p class="lead">Help give children safe, steady days and time to learn.</p>
   <div class="actions"><a class="btn" href="#give" data-sponsor>Sponsor a child →</a><a href="mailto:info@wipahs.co.tz">Talk to us →</a></div>
