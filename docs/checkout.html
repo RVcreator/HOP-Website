@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Donation checkout | Haven of Peace Home</title>
+<style>
+:root{--navy:#102f4b;--blue:#0b5eab;--mist:#f2f8fc;--line:#dbe7ef}
+*{box-sizing:border-box}body{margin:0;background:var(--mist);color:var(--navy);font:1rem/1.55 Arial,sans-serif}
+[hidden]{display:none!important}a{color:var(--blue);text-underline-offset:.25em}:focus-visible{outline:3px solid #0776bd;outline-offset:4px}
+.wrap{width:min(100% - 2rem,68rem);margin-inline:auto}header{background:var(--navy);color:white;padding:1rem 0}header a{color:white;text-decoration:none;font-weight:bold}
+main{padding-block:clamp(2rem,6vw,4.5rem)}h1,h2{margin:0;line-height:1.1}h1{font:clamp(2.5rem,6vw,4.8rem)/1.05 Georgia,serif}h2{font-size:1.4rem}
+.grid{display:grid;grid-template-columns:1.3fr 1fr;align-items:start;gap:1.3rem;margin-top:1.8rem}
+.card{background:white;border:1px solid var(--line);border-radius:1.15rem;padding:clamp(1.25rem,4vw,2rem)}.summary{border-top:4px solid var(--blue)}
+dl div{display:flex;gap:.6rem;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--line)}dd{margin:0;text-align:right;font-weight:bold}.total{font-size:1.3rem}
+.action{display:inline-flex;align-items:center;min-height:44px;padding:.6rem 1.25rem;border-radius:50px;background:var(--blue);color:white;font-weight:bold;text-decoration:none}
+.note{color:#405a70;font-size:.92rem}@media(max-width:46rem){.grid{grid-template-columns:1fr}.summary{grid-row:1}}
+</style>
+<script src="assets/gifts.js" defer></script><script src="assets/hop-checkout.js" defer></script>
+</head>
+<body><header><div class="wrap"><a href="./#give">← Haven of Peace Home</a></div></header>
+<main class="wrap"><h1>Donation checkout</h1><p>Check your gift and continue to WIPAHS to arrange payment.</p>
+<p id="invalid">Choose a gift on the <a href="./#give">Haven of Peace giving page</a> to continue.</p>
+<div id="checkout" class="grid" hidden>
+<section class="card" aria-labelledby="payment-heading"><h2 id="payment-heading">Payment through WIPAHS</h2><p id="payment-copy"></p>
+<a id="payment-link" href="https://wipahs.org/how-to-donate.html" class="action">Continue to WIPAHS →</a>
+<p class="note">For help, <a href="mailto:info@wipahs.co.tz">email the WIPAHS team</a>.</p></section>
+<section class="card summary" aria-labelledby="summary-heading"><h2 id="summary-heading">Donation summary</h2>
+<dl><div><dt>Purpose</dt><dd id="purpose"></dd></div><div id="children-row"><dt>Children sponsored</dt><dd id="children"></dd></div><div><dt>Frequency</dt><dd id="frequency"></dd></div><div class="total"><dt>Total (USD)</dt><dd id="total"></dd></div></dl>
+<p class="note" id="extra" hidden>The $370 monthly gift includes $10 above the standard three-child rate.</p>
+<a href="./#give">Change gift</a></section></div></main></body></html>
