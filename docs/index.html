@@ -756,29 +756,38 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
   document.querySelectorAll('main .block h2, .card, .price, #home-photos .photo, .values blockquote').forEach(item => observer.observe(item));
 }
 
-// Leave the finished numbers visible when motion is disabled or JavaScript is unavailable.
-if ('IntersectionObserver' in window && !motion.matches) {
-  const stats = get('hop-stats');
-  const format = new Intl.NumberFormat('en');
-  const observer = new IntersectionObserver(entries => {
-    if (!entries.some(entry => entry.isIntersecting)) return;
-    observer.disconnect();
-    if (motion.matches) return;
-    const counts = [...stats.querySelectorAll('.hop-count')].map(node => ({
-      node, value: Number(node.textContent)
-    }));
-    let start;
-    function draw(now) {
-      start ??= now;
-      const progress = motion.matches ? 1 : Math.min((now - start) / 1250, 1);
-      const eased = 1 - (1 - progress) ** 3;
-      for (const {node, value} of counts) node.textContent = format.format(Math.round(value * eased));
-      if (progress < 1) requestAnimationFrame(draw);
+</script>
+<script>
+(() => {
+  const grid = document.querySelector('.hop-stat-grid');
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  if (!grid || !('IntersectionObserver' in window)) return;
+  const counts = Array.from(grid.querySelectorAll('.hop-count'), node => ({
+    node, total: Number(node.textContent)
+  }));
+  let frame;
+  function render(progress) {
+    for (const {node, total} of counts) {
+      node.textContent = String(Math.floor(total * progress));
     }
-    requestAnimationFrame(draw);
-  }, {threshold: .25});
-  observer.observe(stats);
-}
+  }
+  const observer = new IntersectionObserver(([entry]) => {
+    cancelAnimationFrame(frame);
+    if (!entry.isIntersecting || motion.matches) {
+      render(1);
+      return;
+    }
+    render(0);
+    const start = performance.now();
+    function step(now) {
+      const progress = motion.matches ? 1 : Math.min(Math.max((now - start) / 3600, 0), 1);
+      render(progress);
+      if (progress < 1) frame = requestAnimationFrame(step);
+    }
+    frame = requestAnimationFrame(step);
+  }, {rootMargin: '-85px 0px 0px 0px'});
+  observer.observe(grid);
+})();
 </script>
 </body>
 </html>
